@@ -1,3 +1,4 @@
+import 'package:expense_tracker/widgets/chart/chart.dart';
 import 'package:expense_tracker/widgets/expenses_list.dart';
 import 'package:expense_tracker/models/expense.dart';
 import 'package:expense_tracker/widgets/new_expense.dart';
@@ -91,7 +92,7 @@ class _ExpensesState extends State<Expenses> {
         // we need a column because our chart and expenses are one below one,
         body: Column(
           children: [
-            const Text("Chart"),
+            Chart(expenses: _registerdExpenses),
             Expanded(
               child: mainContent,
             ),
