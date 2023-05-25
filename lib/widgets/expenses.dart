@@ -2,7 +2,6 @@ import 'package:expense_tracker/widgets/chart/chart.dart';
 import 'package:expense_tracker/widgets/expenses_list.dart';
 import 'package:expense_tracker/models/expense.dart';
 import 'package:expense_tracker/widgets/new_expense.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import 'package:flutter/material.dart';
 
@@ -66,6 +65,8 @@ class _ExpensesState extends State<Expenses> {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+
     Widget mainContent = const Center(
       child: Text("No Expense Added Yet"),
     );
@@ -90,14 +91,25 @@ class _ExpensesState extends State<Expenses> {
           ],
         ),
         // we need a column because our chart and expenses are one below one,
-        body: Column(
-          children: [
-            Chart(expenses: _registerdExpenses),
-            Expanded(
-              child: mainContent,
-            ),
-          ],
-        ),
+        body: width < 600
+            ? Column(
+                children: [
+                  Chart(expenses: _registerdExpenses),
+                  Expanded(
+                    child: mainContent,
+                  ),
+                ],
+              )
+            : Row(
+                children: [
+                  Expanded(
+                    child: Chart(expenses: _registerdExpenses),
+                  ),
+                  Expanded(
+                    child: mainContent,
+                  ),
+                ],
+              ),
       ),
     );
   }
