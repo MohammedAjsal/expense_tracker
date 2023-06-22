@@ -74,14 +74,6 @@ class _NewExpenseState extends State<NewExpense> {
     );
   }
 
-  // to store the title input from user we need a variable to declare
-  // var _enteredTitle = '';
-  // this is a function for when that onchanged text string input assign to the variable we declared
-  // onchaged trigger a string input as a an argument
-  // void _saveTitleInput(String inputValue) {
-  //   _enteredTitle = inputValue;
-  // }
-
   @override
   Widget build(BuildContext context) {
     final keyboardSpace = MediaQuery.of(context).viewInsets.bottom;
